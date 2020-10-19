@@ -1,0 +1,44 @@
+/* Regra da cascata: é o ultimo styling definido que vale - vale inclusive dentro do HTML (se, dentro do head, adc um <style> e depois um link stylesheet, o último é o válido)
+
+Regra da especifidade (da menos específica para a mais):
+ - link stylesheet
+
+ - <head>
+        <style>
+        ...
+        </style>
+
+ - <body style="color:yeallow"
+
+ - body{
+    color: red !important
+}> 
+
+Regra da especifidade pt2 (da menos específica para a mais): 
+ - *{ ... }
+ - body{ ... }
+ - #body{ ... }
+
+*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box; /* explicação em page-orphanages*/
+}
+
+:root{
+    font-size:62.5% 
+}
+
+body{
+    height:100vh;
+    color:white;
+    background: #ebf2f5;
+} 
+
+body, input, button, textarea{
+    font: 400 1.8rem/1 'Nunito', sans-serif; /* agrupar características da fonte*/
+    /* medida "em" é a porcentagem do tamanho relacionado ao elemento anterior
+    medida rem é a porcentagem em relação ao font-size root*/
+}

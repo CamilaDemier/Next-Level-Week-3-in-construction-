@@ -1,0 +1,29 @@
+
+//create map
+let map = L.map('mapid').setView([-23.4644493,-46.5325227], 15); /*let ou const, let da pra alterar ao longo do código, let não*/
+//[latitude, longitude], zoom
+
+//create and add tileLayer
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map)
+
+//crate icon
+let icon = L.icon({
+    iconUrl: "./public/images/map-marker.svg",
+    iconSize: [58,68],
+    iconAnchor:[29,68],
+    popupAnchor:[170,2]
+})
+
+//create popup overlay
+let popup = L.popup({
+    closeButton: false,
+    className:'map-popup',
+    minWidth: 240,
+    minHeight: 240
+}).setContent('Lar das meninas <a href="orphanage.html?id-1" class="choose-orphanage"> <img src="./public/images/arrow-white.svg"> </a>')
+
+
+//create and add marker
+L.marker([-23.4644493,-46.5325227], {icon}) //Aqui, a variável e o valor tem o mesmo nome, então não precisa de {icon: icon} 
+.addTo(map)
+.bindPopup(popup)
